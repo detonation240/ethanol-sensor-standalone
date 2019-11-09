@@ -1,4 +1,9 @@
 // Adafruit_SSD1306 - Version: Latest 
+// Fixed Compatibility with 4 wire 0.96 OLED
+// Requires Arduino (nano accepts 12v natively), 0.96 OLED, 4.7k-ohm resistor (x1), GM PN#13577429 or compatible GM Flex sensor.
+// Aaron S. (Detonation)
+
+
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -77,13 +82,13 @@ void loop() {
     //Screen calculations
     display.display();
     display.clearDisplay();
-    display.setCursor(0,16);
+    display.setCursor(0,0);
     display.setTextSize(2);
     display.setTextColor(WHITE);
     display.print("Eth:  ");
     display.print(ethanol);
     display.print("%");
-    display.setCursor(0,36);
+    display.setCursor(0,16);
     display.print("Temp: ");
     display.print(fahr);
     display.print("F");
